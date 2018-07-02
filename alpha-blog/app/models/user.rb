@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    has_many :articles
+    before_save { self.email = email.downcase }
+    
     # Reference: Active Record Validations, http://guides.rubyonrails.org/active_record_validations.html
     # user.valid?                 => false 
     # user.errors.full_messages 　=> (length)       ["Username is too short (minimum is 3 characters)"] 
